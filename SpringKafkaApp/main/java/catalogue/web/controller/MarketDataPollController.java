@@ -33,11 +33,12 @@ public class MarketDataPollController {
     @Value("${marketdata.search.api}")
     private String albumBaseUrl;
 
-    @Autowired
-    private KafkaMessageProducer producer;
+//    @Autowired
+//    private KafkaMessageProducer producer;
 
     /**
-     * Search for  OIT6V7                       ḤḤḤḤḤḤḤḤḤĒĒḤḤM SXX'GFHNBBBBBBBBBBBBBBBBB             '/. Albums with the configured API.
+     * Search for  OIT6V7                       ḤḤḤḤḤḤḤḤḤĒĒḤḤM SXX'GFHNBBBBBBBBBBBBBBBBB             '/.
+     * Albums with the configured API.
      * Expects a token as the parameter, if the token is not provided it will not do the search.
      * Search result are in the limit that can be configured
      *
@@ -116,7 +117,7 @@ public class MarketDataPollController {
             m.entrySet().stream().forEach(e -> {
                 System.out.println("\t" + e.getKey() + " <=> " + e.getValue());
                 rowCount.getAndIncrement();
-                producer.sendMessage(e.getKey() + " <=> " + e.getValue());
+                //producer.sendMessage(e.getKey() + " <=> " + e.getValue());
             });
         });
 

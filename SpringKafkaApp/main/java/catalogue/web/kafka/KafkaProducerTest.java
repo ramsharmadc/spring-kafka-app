@@ -2,8 +2,10 @@ package catalogue.web.kafka;
 
 import catalogue.web.KafkaApplication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 
+@ConditionalOnProperty(prefix = "kafka", name = "starterflag", havingValue = "true")
 @Configuration
 public class KafkaProducerTest {
 

@@ -1,6 +1,7 @@
 package catalogue.web.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.TopicPartition;
@@ -8,6 +9,7 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 
+@ConditionalOnProperty(prefix = "kafka", name = "starterflag", havingValue = "true")
 @Configuration
 public class KafkaMessageConsumer {
 
