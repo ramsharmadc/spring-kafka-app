@@ -13,6 +13,7 @@ import java.util.Map;
 
 @ConditionalOnProperty(prefix = "kafka", name = "starterflag", havingValue = "true")
 @Configuration
+
 public class KafkaTopicConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")

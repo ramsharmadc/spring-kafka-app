@@ -23,7 +23,12 @@ public class KafkaRestController {
     public ResponseEntity<String> sendMsgToTopic(String message) throws Exception {
         try {
             LOGGER.log(KafkaRestController.class, "sendMsgToTopic ", message);
-            producer.sendMessage(message);
+            // replace thread block with L31
+            Thread t = new Thread(()->{
+                producer.sendMessage(message);
+            });
+            t.start();
+            // producer.sendMessage(message);
             return ResponseEntity.ok("Message Sent");
         } catch (Exception e) {
             throw new Exception("error while searching for albums", e);

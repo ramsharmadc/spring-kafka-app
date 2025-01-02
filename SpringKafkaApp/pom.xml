@@ -15,9 +15,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringKafkaApp</name>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <!--<properties>
+        <java.version>11</java.version>
+    </properties>-->
 
     <dependencies>
 
@@ -114,12 +114,12 @@
     </dependencies>
 
     <build>
-        <plugins>
+        <!--<plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 
 </project>

@@ -46,7 +46,7 @@ public class KafkaProducerTest {
          * configuration,  all messages with char sequence
          * 'World' will be discarded.
          */
-        producer.sendMessageToFiltered("Hello Baeldung!");
+        producer.sendMessageToFiltered("Hello Kafka with Spring!");
         producer.sendMessageToFiltered("Hello World!");
 
 //        listener.filterLatch.await(10, TimeUnit.SECONDS);

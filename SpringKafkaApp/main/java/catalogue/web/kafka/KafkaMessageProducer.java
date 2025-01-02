@@ -41,13 +41,15 @@ public class KafkaMessageProducer {
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                log.log(KafkaMessageProducer.class, "Sent message [" + message + "] with offset=[" + result.getRecordMetadata()
+                log.log(KafkaMessageProducer.class,
+                        "Sent message [" + message + "] with offset=[" + result.getRecordMetadata()
                         .offset() + "]");
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                log.log(KafkaMessageProducer.class, "Unable to send message [" + message + "] due to : " + ex.getMessage());
+                log.log(KafkaMessageProducer.class,
+                        "Unable to send message [" + message + "] due to : " + ex.getMessage());
             }
         });
     }
@@ -73,7 +75,7 @@ public class KafkaMessageProducer {
     }
 
     // sending message to topic 'filtered'
-    public void  sendMessageToFiltered(String message) {
+    public void sendMessageToFiltered(String message) {
         ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(filteredTopicName, message);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
